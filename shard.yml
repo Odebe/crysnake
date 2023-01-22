@@ -1,0 +1,19 @@
+name: snake-crystal
+version: 0.1.0
+
+authors:
+  - Mihail Odebe <derpiranha@gmail.com>
+
+targets:
+  crysnake:
+    main: src/snake.cr
+
+crystal: 1.6.2
+
+dependencies:
+  ncurses:
+    github: SamualLB/ncurses
+  matrix:
+    github: JacobUb/matrix
+    
+license: MIT
