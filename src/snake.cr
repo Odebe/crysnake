@@ -23,8 +23,10 @@ module Snake
       Interaction.draw(window, world)
     end
 
-    window.print "GAME OVER", [10, 10]
-    window.refresh
+    Interaction.draw_game_over(
+      window,
+      player.tail.size
+    )
   ensure
     Interaction.stop
   end

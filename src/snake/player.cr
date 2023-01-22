@@ -1,34 +1,42 @@
+require "./coordinate.cr"
+require "./tail.cr"
+
 module Snake
   class Player
     module Directions
-      Up = Matrix.rows([[0_i16, -1_i16]])
-      Down = Matrix.rows([[0_i16, 1_i16]])
-      Left = Matrix.rows([[-1_i16, 0_i16]])
-      Right = Matrix.rows([[1_i16, 0_i16]])
+      Up =    Coordinate.new(0, -1)
+      Down =  Coordinate.new(0, 1)
+      Left =  Coordinate.new(-1, 0)
+      Right = Coordinate.new(1, 0)
     end
 
-    property direction : Matrix(Int16)
-    property head : Matrix(Int16)
+    property direction : Coordinate
+    property head : Coordinate
     property tail : Array(Tail)
 
-    class Tail
-      def initialize(@cord : Matrix(Int16))
-      end
-
-      def x : Int16
-        @cord[0, 0]
-      end
-  
-      def y : Int16
-        @cord[0, 1]
-      end
-    end
-
     def initialize(x : Int16 = 0, y : Int16 = 0)
-      @head = Matrix.rows([[x, y]])
+      @head = Coordinate.new(x, y)
       @tail = [] of Tail
 
       @direction = Directions::Up
+    end
+
+    def chage_direction(direction)
+      return unless can_change?(direction)
+
+      @direction = direction
+    end
+
+    def can_change?(direction)
+      case {@direction, direction}
+      when {Directions::Up, Directions::Down}
+      when {Directions::Down, Directions::Up}
+      when {Directions::Right, Directions::Left}
+      when {Directions::Left, Directions::Right}
+        false
+      else
+        true
+      end
     end
 
     def move : Nil
@@ -40,23 +48,15 @@ module Snake
     end
 
     def grow_tail
-      @tail.push Tail.new(@head)
+      @tail.push Tail.new(@head - @direction)
     end
 
     def x : Int16
-      @head[0, 0]
+      @head.x
     end
 
     def y : Int16
-      @head[0, 1]
-    end
-
-    def to_s 
-      "#{@head}, tail: #{@tail}"
-    end
-
-    def alive?
-      true
+      @head.y
     end
   end
 end
