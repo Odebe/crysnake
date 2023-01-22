@@ -11,7 +11,7 @@ module Interaction
 
   def self.window(world)
     w = NCurses::Window.new(world.height, world.width, 0, 0)
-    w.timeout = 60
+    w.timeout = 120
     w.keypad true
     w.box '#', '#'
     w
@@ -35,8 +35,16 @@ module Interaction
       world.width.times do |x|
         item = map[y][x]
 
-        unless item.nil?
+        if item.is_a? Snake::Player
           window.print "O", [y, x]
+        end
+
+        if item.is_a? Snake::Player::Tail
+          window.print "+", [y, x]
+        end
+
+        if item.is_a? Snake::Apple
+          window.print "*", [y, x]
         end
       end
     end
