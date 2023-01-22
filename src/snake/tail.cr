@@ -1,7 +1,7 @@
 require "./coordinate.cr"
 
 module Snake
-  class Apple
+  class Tail
     getter coord : Coordinate
 
     def initialize(@coord : Coordinate)

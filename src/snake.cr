@@ -15,6 +15,8 @@ module Snake
     game = Snake::Game.new(world)
 
     while game.running?
+      sleep Snake::Player::DIRECTION_SPEED[player.direction]
+      
       ch = window.get_char
       break if ch == 'q'
 
@@ -23,8 +25,10 @@ module Snake
       Interaction.draw(window, world)
     end
 
-    window.print "GAME OVER", [10, 10]
-    window.refresh
+    Interaction.draw_game_over(
+      window,
+      player.tail.size
+    )
   ensure
     Interaction.stop
   end
