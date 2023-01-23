@@ -1,18 +1,24 @@
 # snake-crystal
-
-TODO: Write a description here
+Snake game written in Crystel for F0RTHSP4CE hackathon
 
 ## Installation
 
-TODO: Write installation instructions here
+* [Install Crystal lang](https://crystal-lang.org/install/)
+* `shards build`
 
 ## Usage
 
-TODO: Write usage instructions here
+* `./bin/crysnake`
 
 ## Development
 
-TODO: Write development instructions here
+```
+ ____   ___  _   _ _____   _____ ___  _   _  ____ _   _   __  ____   __   ____    _    ____  ____    _    ____ _____ 
+|  _ \ / _ \| \ | |_   _| |_   _/ _ \| | | |/ ___| | | | |  \/  \ \ / /  / ___|  / \  |  _ \| __ )  / \  / ___| ____|
+| | | | | | |  \| | | |     | || | | | | | | |   | |_| | | |\/| |\ V /  | |  _  / _ \ | |_) |  _ \ / _ \| |  _|  _|  
+| |_| | |_| | |\  | | |     | || |_| | |_| | |___|  _  | | |  | | | |   | |_| |/ ___ \|  _ <| |_) / ___ \ |_| | |___ 
+|____/ \___/|_| \_| |_|     |_| \___/ \___/ \____|_| |_| |_|  |_| |_|    \____/_/   \_\_| \_\____/_/   \_\____|_____|
+```
 
 ## Contributing
 
