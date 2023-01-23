@@ -28,7 +28,7 @@ module Interaction
   def self.draw_game_over(window, count)
     window.print "GAME OVER", [10, 10]
     window.print "Eaten: #{count}", [12, 10]
-    window.print "Press Q to quit", [18, 10]
+    window.print "Press q to quit", [18, 10]
 
     window.refresh
     window.no_timeout
@@ -37,7 +37,6 @@ module Interaction
       ch = window.get_char
       break if ch == 'q'
     end
-
   end
 
   def self.draw(window, world : Snake::World)

@@ -10,6 +10,16 @@ module Snake
       Right = Coordinate.new(1, 0)
     end
 
+    HORIZONTAL_DELAY = 0.01
+    VERT_DELAY = HORIZONTAL_DELAY * 3
+
+    DIRECTION_SPEED = {
+      Directions::Up => VERT_DELAY,
+      Directions::Down => VERT_DELAY,
+      Directions::Right => HORIZONTAL_DELAY,
+      Directions::Left => HORIZONTAL_DELAY
+    }
+
     property direction : Coordinate
     property head : Coordinate
     property tail : Array(Tail)
